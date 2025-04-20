@@ -22,7 +22,7 @@ function createGrid(gridSize) {
     const square = document.createElement("div");
     square.style.width = `${squareSize}px`;
     square.style.height = `${squareSize}px`;
-    square.style.border = "1px solid black";
+    square.style.border = "1px solid grey";
     square.style.flexBasis = `${squareSize}px`; // Makes the squares' size consistent
     square.style.boxSizing = "border-box"; // Makes sure border is included in the width/height\
     function getRandomColor() {
