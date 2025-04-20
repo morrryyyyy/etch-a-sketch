@@ -1,12 +1,12 @@
 // select the container div and style it to make it visible on the screen
 const container = document.querySelector("#container");
 container.style.border = "2px solid black";
-container.style.width = "800px";
+container.style.width = "500px";
 container.style.height = "500px";
 
-// Declare the global gridSize variable
+// Declare the global gridSize and color mode variables
 let gridSize = 16; // Default grid size
-
+let colorMode = false; //Defualt black mode
 //create the square for the grid and append them to the container
 function createGrid(gridSize) {
   // Get container dimensions
@@ -21,7 +21,7 @@ function createGrid(gridSize) {
   for (let i = 0; i < gridSize * gridSize; i++) {
     const square = document.createElement("div");
     square.style.width = `${squareSize}px`;
-    // square.style.height = `${squareSize}px`;
+    square.style.height = `${squareSize}px`;
     square.style.border = "1px solid black";
     square.style.flexBasis = `${squareSize}px`; // Makes the squares' size consistent
     square.style.boxSizing = "border-box"; // Makes sure border is included in the width/height\
@@ -66,6 +66,13 @@ function changeGridSize() {
   }
 }
 
-//event listener for the grid size button
-// 1. When the button is clicked, run the changeGridSize function
+//event listener for the grid size button, When the button is clicked, run the changeGridSize function
 gridSizeButton.addEventListener("click", changeGridSize);
+
+// select the button for color mode
+const colorButton = document.querySelector("#color-mode");
+
+// event listener for color mode
+colorButton.addEventListener("click", toggleColorMode);
+
+function toggleColorMode() {}
