@@ -25,8 +25,20 @@ function createGrid(gridSize) {
     square.style.border = "1px solid black";
     square.style.flexBasis = `${squareSize}px`; // Makes the squares' size consistent
     square.style.boxSizing = "border-box"; // Makes sure border is included in the width/height\
+    function getRandomColor() {
+      const r = Math.floor(Math.random() * 256); // Random number between 0 and 255 for Red
+      const g = Math.floor(Math.random() * 256); // Random number between 0 and 255 for Green
+      const b = Math.floor(Math.random() * 256); // Random number between 0 and 255 for Blue
+
+      return `rgb(${r}, ${g}, ${b})`; // Return the color in rgb format
+    }
+
     square.addEventListener("mouseover", () => {
-      square.style.backgroundColor = "black";
+      if (colorMode === true) {
+        square.style.backgroundColor = getRandomColor();
+      } else {
+        square.style.backgroundColor = "black";
+      }
     });
 
     container.append(square);
@@ -75,4 +87,16 @@ const colorButton = document.querySelector("#color-mode");
 // event listener for color mode
 colorButton.addEventListener("click", toggleColorMode);
 
-function toggleColorMode() {}
+function toggleColorMode() {
+  colorMode = true;
+}
+
+//select the black mode button
+const blackButton = document.querySelector("#black-mode");
+
+//event listener for black mode
+blackButton.addEventListener("click", toggleBlackMode);
+
+function toggleBlackMode() {
+  colorMode = false;
+}
